@@ -3,7 +3,7 @@
 
 
 /*---------------------------- Variables (state) ----------------------------*/
-let board, turn, isWinner
+let board, turn, winner
 
 
 /*------------------------ Cached Element References ------------------------*/
@@ -16,4 +16,11 @@ const messageEl = document.querySelector('#message')
 
 
 /*-------------------------------- Functions --------------------------------*/
+init()
 
+function init() {
+  board = [null, null, null, null, null, null, null, null, null, ]
+  turn = -1
+  winner = null
+  render()
+}
