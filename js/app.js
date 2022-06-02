@@ -19,11 +19,9 @@ let board, turn, winner
 const squareEls = document.querySelectorAll('.board-squares')
 const messageEl = document.querySelector('#message')
 
-
+console.log(squareEls)
 /*----------------------------- Event Listeners -----------------------------*/
-
-
-
+document.querySelector('.board').addEventListener('click', handleClick)
 /*-------------------------------- Functions --------------------------------*/
 init()
 
@@ -45,6 +43,10 @@ function render() {
   })
     winner === null ? messageEl.textContent = `It is player ${turn}'s turn` : messageEl.textContent = `It is player ${turn*1}'s turn`
     winner === 'T' ? messageEl.textContent = `It is a tie!` : messageEl.textContent = `Congratulations to player ${winner}!`
+  }
+
+  function handleClick(evt) {
+    console.log('you clicked')
   }
 
 
