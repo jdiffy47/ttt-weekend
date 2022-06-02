@@ -19,7 +19,7 @@ const messageEl = document.querySelector('#message')
 init()
 
 function init() {
-  board = [1, null, null, null, null, null, null, null, null, ]
+  board = [null, null, null, null, null, null, null, null, null, ]
   turn = -1
   winner = null
   render()
@@ -31,8 +31,11 @@ function render() {
     } else if(board[idx] === 1) {
       element.textContent = 'X'
     } else if(board[idx] === -1) {
-      element.textContent === 'O'
+      element.textContent = 'O'
     }
-  });
-}
+  })
+    winner === null ? messageEl.textContent = `It is player ${turn}'s turn` : messageEl.textContent = `It is player ${turn*1}'s turn`
+    winner === 'T' ? messageEl.textContent = `It is a tie!` : messageEl.textContent = `Congratulations to player ${winner}!`
+  }
+
 
