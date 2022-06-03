@@ -1,4 +1,5 @@
 /*-------------------------------- Constants --------------------------------*/
+
 const winningCombos = [
   [0, 1, 2],
   [3, 4, 5],
@@ -20,8 +21,11 @@ const squareEls = document.querySelectorAll('.board-squares')
 const messageEl = document.querySelector('#message')
 
 console.log(squareEls)
+
 /*----------------------------- Event Listeners -----------------------------*/
+
 document.querySelector('.board').addEventListener('click', handleClick)
+
 /*-------------------------------- Functions --------------------------------*/
 init()
 
@@ -46,7 +50,14 @@ function render() {
   }
 
   function handleClick(evt) {
-    console.log('you clicked')
+    let sqIdx = evt.target.id.replace('sq', '')
+    if (board[sqIdx] !== null) {
+      return
+    } else {
+      board[sqIdx] = turn
+    }
+    render()
+    turn *= -1
   }
 
 
