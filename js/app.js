@@ -50,14 +50,33 @@ function render() {
   }
 
   function handleClick(evt) {
-    let sqIdx = evt.target.id.replace('sq', '')
+    let sqIdx = parseInt(evt.target.id.replace('sq', ''))
     if (board[sqIdx] !== null) {
+      return
+    } else if (winner !== null) {
       return
     } else {
       board[sqIdx] = turn
     }
-    render()
     turn *= -1
+    getWinner()
+    render()
   }
+
+  function getWinner() {
+    let sum
+    for (let i = 0; i < winningCombos.length; i++) {
+      sum = board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]]
+    }
+      if (sum === 3) {
+        return 1
+      } else if (sum === -3) {
+        return -1
+      } else if (board.includes(null) === false) {
+        return 'T'
+      }
+      return null
+    }
+  
 
 
