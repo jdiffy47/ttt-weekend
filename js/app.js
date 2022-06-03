@@ -19,18 +19,19 @@ let board, turn, winner
 /*------------------------ Cached Element References ------------------------*/
 const squareEls = document.querySelectorAll('.board-squares')
 const messageEl = document.querySelector('#message')
+const resetBtnEl = document.querySelector('#reset-btn')
 
-console.log(squareEls)
 
 /*----------------------------- Event Listeners -----------------------------*/
 
 document.querySelector('.board').addEventListener('click', handleClick)
+resetBtnEl.addEventListener('click', init)
 
 /*-------------------------------- Functions --------------------------------*/
 init()
 
 function init() {
-  board = [null, null, null, null, null, null, null, null, null, ]
+  board = [null, null, null, null, null, null, null, null, null]
   turn = -1
   winner = null
   render()
