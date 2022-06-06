@@ -40,14 +40,20 @@ function init() {
 function render() {
   squareEls.forEach((element, idx) => {
     if(board[idx] === null) {
+      element.textContent = ''
     } else if(board[idx] === 1) {
       element.textContent = 'X'
     } else if(board[idx] === -1) {
       element.textContent = 'O'
     }
   })
-    winner === null ? messageEl.textContent = `It is player ${turn}'s turn` : messageEl.textContent = `It is player ${turn*1}'s turn`
-    winner === 'T' ? messageEl.textContent = `It is a tie!` : messageEl.textContent = `Congratulations to player ${winner}!`
+    if (winner === null) {
+      messageEl.textContent = `It is player ${turn}'s turn`
+    } else if (winner === 'T') {
+      messageEl.textContent = `It is a tie!`
+    } else {
+      messageEl.textContent = `Player ${winner} has won!`
+    }
   }
 
   function handleClick(evt) {
@@ -65,19 +71,34 @@ function render() {
   }
 
   function getWinner() {
-    let sum
     for (let i = 0; i < winningCombos.length; i++) {
-      sum = board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]]
-    }
-      if (sum === 3) {
-        return 1
-      } else if (sum === -3) {
-        return -1
+      if (board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]] === 3) {
+        winner = 1
+      } else if (board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]] === -3) {
+        winner = -1
       } else if (board.includes(null) === false) {
-        return 'T'
+        winner = 'T'
       }
-      return null
     }
+    return null
+  }
+    
+    
+    
+    
+    
+    
+    //   sum = board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]]
+    // }
+    //   if (sum === 3) {
+    //     winner = 1
+    //   } else if (sum === -3) {
+    //     winner = -1
+    //   } else if (board.includes(null) === false) {
+    //     winner = 'T'
+    //   }
+    //   return null
+    // }
   
-
+    
 

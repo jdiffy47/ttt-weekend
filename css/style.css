@@ -1,5 +1,6 @@
 body {
-    background-color: gray;
+    background-color: #264653;
+    color: #e9c46a;
 	/* Use a system font, if none are available use an available sans-sarif   font */
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
 		Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -7,6 +8,8 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 section.board {
@@ -17,9 +20,17 @@ section.board {
 }
 
 div {
-  border: 3px solid black;
+  border: 3px solid #2a9d8f;
   font-size: 8vmin;
   text-align: center;
   vertical-align: middle;
+}
+
+#reset-btn {
+  background-color: #2a9d8f;
+  color: #fff;
+  font-weight: 900;
+  padding: 4px 30px;
+  margin-top: 5px;
 }
 
