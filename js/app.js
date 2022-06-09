@@ -47,14 +47,23 @@ function render() {
       element.textContent = 'O'
     }
   })
-    if (winner === null) {
-      messageEl.textContent = `It is player ${turn}'s turn`
-    } else if (winner === 'T') {
-      messageEl.textContent = `It is a tie!`
-    } else {
-      messageEl.textContent = `Player ${winner} has won!`
-    }
+  if (winner === null) {
+    const playerTurn = turn === 1 ? 'Player 1' : 'Player 2'
+    messageEl.textContent = `It is ${playerTurn}'s turn`
+  } else if (winner === 'T') {
+    messageEl.textContent = `It is a tie!`
+  } else {
+    messageEl.textContent = `${winner} has won!`
   }
+}
+  //   if (winner === null) {
+  //     messageEl.textContent = `It is player ${turn}'s turn`
+  //   } else if (winner === 'T') {
+  //     messageEl.textContent = `It is a tie!`
+  //   } else {
+  //     messageEl.textContent = `Player ${winner} has won!`
+  //   }
+  // }
 
   function handleClick(evt) {
     let sqIdx = parseInt(evt.target.id.replace('sq', ''))
